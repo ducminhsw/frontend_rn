@@ -4,18 +4,20 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 const CustomButton = ({onPress, text, type="PRIMARY"}) => {
     return (
         <Pressable onPress={onPress} style={[styles.container, styles[`container_${type}`]]}>
-            <Text style={[styles.text, text[`text_${type}`]]}>{text}</Text>
+            <Text style={[styles.text, styles[`text_${type}`]]}>{text}</Text>
         </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        width: '100%',
+        width: '90%',
         padding: 15,
         marginVertical: 5,
         alignItems: 'center',
-        borderRadius: 5
+        borderRadius: 5,
+        marginLeft: '5%',
+        maxHeight: 50
     },
     container_PRIMARY: {
         backgroundColor: '#3B71F3'
@@ -28,6 +30,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
+        fontSize: 15
     },
     text_PRIMARY: {
         color: '#FFFFFF'

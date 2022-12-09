@@ -1,8 +1,8 @@
 import React, {useState, useNavigate} from 'react';
-import { View, Text, CheckBox, StyleSheet,  } from 'react-native';
+import { View, Text, CheckBox, StyleSheet } from 'react-native';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
-import Logo from '../assets/images/Facebook_f_logo_(2019).svg.png'
+import Logo from '../assets/Facebook_f_logo_(2019).svg.png'
 
 const SignUp = () => {
     const {firstName, setFirstName} = useState('');
@@ -11,10 +11,9 @@ const SignUp = () => {
     const {password, setPassword} = useState('');
     const {passwordRe, setPasswordRe} = useState('');
     const {isChecked, setCheck} = useState(false);
-    const navigate = useNavigate();
 
     const onRulePressed = () => {
-        navigate('')
+r
     };
     
     return (
