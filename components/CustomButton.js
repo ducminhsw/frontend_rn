@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         padding: 15,
         marginVertical: 5,
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 10,
         marginLeft: '5%',
         maxHeight: 50
     },
@@ -27,6 +27,15 @@ const styles = StyleSheet.create({
     },
     container_TERTIARY: {
     
+    },
+    container_LEFT: {
+        backgroundColor: '#03C04A',
+        width: '42.5%',
+
+    },
+    container_RIGHT: {
+        backgroundColor: '#3B71F3',
+        width: '42.5%',
     },
     text: {
         fontWeight: 'bold',
@@ -40,6 +49,12 @@ const styles = StyleSheet.create({
     },
     text_TERTIARY: {
         color: '#1338BE'
+    },
+    text_LEFT: {
+        color: '#FFFFFF'
+    },
+    text_RIGHT: {
+        color: '#FFFFFF'
     }
 });
 
