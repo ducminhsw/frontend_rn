@@ -1,13 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { Text, View, Button } from "react-native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignIn from "../components/SignInScreen";
 import SignUp from "../components/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = () => {
+const Navigation = (navi) => {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}}>
