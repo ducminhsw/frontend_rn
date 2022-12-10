@@ -1,13 +1,17 @@
-import React, {useState, useNavigate} from "react";
-import { Text, View, Image, StyleSheet, useWindowDimensions } from "react-native";
+import React, {useState} from "react";
+import { Text, View, Image, StyleSheet, useWindowDimensions, SafeAreaView } from "react-native";
 import Logo from "../assets/Facebook_f_logo_(2019).svg.png";
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
+import { useNavigation } from "@react-navigation/native";
 
-const SignIn = () => {
+
+const SignIn = ({navigation}) => {
     const {height} = useWindowDimensions();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const navi = useNavigation();
 
     const onSignInPressed = () => {
 
@@ -16,12 +20,12 @@ const SignIn = () => {
 
     };
     const onSignUpPressed = () => {
-
+        navi.navigate('SignUp')
     };
 
 
     return (
-        <View>
+        <SafeAreaView>
             <Image 
                 source = {Logo} 
                 style = {[styles.logo, {height: height * 0.3}]}
@@ -61,7 +65,7 @@ const SignIn = () => {
                     type="SECONDARY"
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

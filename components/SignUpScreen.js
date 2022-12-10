@@ -1,9 +1,9 @@
-import React, {useState, useNavigate} from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import DatePicker from 'react-native-date-picker'
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, Image, Button, SafeAreaView } from 'react-native';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import Logo from '../assets/Facebook_f_logo_(2019).svg.png'
+import { useNavigation } from "@react-navigation/native";
 
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
@@ -11,22 +11,21 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRe, setPasswordRe] = useState('');
-    const [isChecked, setCheck] = useState(false);
-    const [date, setDate] = useState(new Date());
-    const [open, setOpen] = useState(false);
+
+    const navi = useNavigation();
 
     const onRulePressed = () => {
-
+        console.warn('Ok')
     };
     const onReturnPressed = () => {
-
+        navi.navigate('SignIn')
     };
     const onNextPressed = () => {
 
     }
     
     return (
-        <View>
+        <SafeAreaView>
             <Text style={styles.header}>Đăng ký tài khoản</Text>
             <Image 
                 source = {Logo} 
@@ -63,23 +62,16 @@ const SignUp = () => {
                 />
             </View>
             <Text style={styles.birthdayText}>Sinh nhật</Text>
-            <CustomButton text="Date placeholder" onPress={() => setOpen(true)} />
-            <DatePicker
-                modal
-                open={open}
-                date={date}
-                onConfirm={(date) => {
-                    setOpen(false)
-                    setDate(date)
-                }}
-                onCancel={() => {
-                    setOpen(false)
-                }}
-            />
+            <View style={styles.placeholder}>
+                <Button title="Date placeholder"/>
+            </View>
             <View style={styles.rule}>
                 <Text style={styles.ruleText}>
-                    Tôi đồng ý với{' '}
-                    <Text style={styles.link} onPress={onRulePressed}>điều khoản dịch vụ</Text>
+                    Nhấn xác nhận đồng nghĩa với bạn đã đọc và đồng ý với{' '}
+                    <Text style={styles.link} onPress={onRulePressed}>điều khoản dịch vụ{' '}</Text>
+                    và{' '}
+                    <Text style={styles.link}>chính sách bảo mật{' '}</Text>
+                    của chúng tôi.
                 </Text>
             </View>
             <View style={styles.naviButton}>
@@ -89,19 +81,18 @@ const SignUp = () => {
                     type="LEFT"
                 />
                 <CustomButton
-                    text="Tiếp tục"
+                    text="Xác nhận"
                     onPress={onNextPressed}
                     type="RIGHT"
                 />
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     header: {
         fontSize: 25,
-        marginTop: '15%',
         fontWeight: 'bold',
         alignSelf: 'center',
 
@@ -122,7 +113,6 @@ const styles = StyleSheet.create({
     },
     naviButton: {
         flexDirection: 'row',
-        marginVertical: '10%'
     },
     birthdayText: {
         fontSize: 15,
@@ -131,9 +121,15 @@ const styles = StyleSheet.create({
     },
     rule: {
         marginHorizontal: '5%',
+        textAlign: 'center'
     },
     ruleText: {
         fontSize: 15,
+        alignSelf: 'center',
+    },
+    placeholder: {
+        width: '90%',
+        marginHorizontal: '5%',
     }
 });
 

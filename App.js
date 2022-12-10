@@ -1,11 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import SignIn from './components/SignInScreen'
-import SignUp from './components/SignUpScreen'
+import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
+import Navigation from './navigation';
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator} from '@react-navigation/native-stack';
+import SignIn from './components/SignInScreen';
 
-export default function App() {
+
+
+function App() {
   return (
-    <SignUp/>
+    <SafeAreaView>
+      <Navigation/>
+    </SafeAreaView>
   );
 }
 
@@ -16,4 +21,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    marginVertical: '25%'
+  }
 });
+export default App;
