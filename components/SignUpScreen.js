@@ -11,6 +11,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRe, setPasswordRe] = useState('');
+    const [secure, setSecure] = useState(true);
 
     const navi = useNavigation();
 
@@ -48,12 +49,17 @@ const SignUp = () => {
                     value={email}
                     setValue={setEmail}
                 />
-                <CustomInput
-                    placeholder="Mật khẩu"
-                    value={password}
-                    setValue={setPassword}
-                    secureTextEntry
-                />
+                <View style={styles.password}>
+                    <CustomInput 
+                        placeholder="Mật khẩu"
+                        value={password}
+                        setValue={setPassword}
+                        secureTextEntry={secure}
+                    />
+                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)}>
+                        <Image source={require('../assets/visible.png')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/>
+                    </TouchableOpacity>
+                </View>
                 <CustomInput
                     placeholder="Nhập lại mật khẩu"
                     value={passwordRe}
@@ -130,6 +136,16 @@ const styles = StyleSheet.create({
     placeholder: {
         width: '90%',
         marginHorizontal: '5%',
+    },
+    visible: {
+        height: 30,
+        width: 25,
+        position: 'absolute',
+        right: '8%',
+        alignSelf: 'center',
+    },
+    password: {
+        flexDirection: 'row'
     }
 });
 
