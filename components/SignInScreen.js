@@ -3,7 +3,6 @@ import { Text, View, Image, StyleSheet, useWindowDimensions, SafeAreaView, Touch
 import Logo from "../assets/Facebook_f_logo_(2019).svg.png";
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
-import { useNavigation } from "@react-navigation/native";
 
 
 const SignIn = () => {
@@ -43,8 +42,12 @@ const SignIn = () => {
                         setValue={setPassword}
                         secureTextEntry={secure}
                     />
-                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)}>
-                        <Image source={require('../assets/visible.png')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/>
+                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)} activeOpacity={0.7}>
+                        {secure?
+                            <Image source={require('../assets/visible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/> 
+                            :
+                            <Image source={require('../assets/notvisible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/>
+                        }
                     </TouchableOpacity>
                 </View>
             </View>
@@ -75,8 +78,9 @@ const SignIn = () => {
 
 const styles = StyleSheet.create({
     root: {
-        alignItems: 'center',
-        padding: 20
+        justifyContent: 'center',
+        padding: 20,
+        flex: 1
     },
     logo: {
         width: '30%',
