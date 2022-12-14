@@ -3,7 +3,6 @@ import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer, useNavigationContainerRef, createNavigationContainerRef } from "@react-navigation/native";
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignIn from './components/SignInScreen';
-import * as RootNavigation from './navigation/RootNavigation'
 import SignUp from './components/SignUpScreen';
 
 

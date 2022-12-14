@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, Image, Button, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import Logo from '../assets/Facebook_f_logo_(2019).svg.png'
+import MyDatePicker from './DatePicker';
+
 
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
@@ -11,6 +13,8 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [passwordRe, setPasswordRe] = useState('');
     const [secure, setSecure] = useState(true);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [open, setOpen] = useState(true);
 
     const onRulePressed = () => {
         console.warn('Ok')
@@ -53,7 +57,7 @@ const SignUp = () => {
                         setValue={setPassword}
                         secureTextEntry={secure}
                     />
-                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)} activeOp>
+                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)}>
                         {secure?
                             <Image source={require('../assets/visible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/> 
                             :
@@ -69,9 +73,7 @@ const SignUp = () => {
                 />
             </View>
             <Text style={styles.birthdayText}>Sinh nhật</Text>
-            <View style={styles.placeholder}>
-                <Button title="Date placeholder"/>
-            </View>
+            <MyDatePicker/>
             <View style={styles.rule}>
                 <Text style={styles.ruleText}>
                     Nhấn xác nhận đồng nghĩa với bạn đã đọc và đồng ý với{' '}
@@ -93,6 +95,7 @@ const SignUp = () => {
                     type="RIGHT"
                 />
             </View>
+            <View accessibilityRole='checkbox'><Text>a</Text></View>
         </SafeAreaView>
     )
 }
@@ -138,10 +141,6 @@ const styles = StyleSheet.create({
     ruleText: {
         fontSize: 15,
         alignSelf: 'center',
-    },
-    placeholder: {
-        width: '90%',
-        marginHorizontal: '5%',
     },
     visible: {
         height: 30,

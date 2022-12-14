@@ -10,6 +10,7 @@ const CustomInput = props => {
                 onChangeText={props.setValue}
                 style={styles.input}
                 secureTextEntry={props.secureTextEntry} 
+                editable={props.editable}
             />
         </View>
     )
