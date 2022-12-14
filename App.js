@@ -1,16 +1,17 @@
 import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
-import Navigation from './navigation';
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+// import Navigation from './navigation';
+import { NavigationContainer, useNavigationContainerRef, createNavigationContainerRef } from "@react-navigation/native";
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignIn from './components/SignInScreen';
+import SignUp from './components/SignUpScreen';
 
 
 
 function App() {
   return (
-    <SafeAreaView>
-      <Navigation/>
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <SignUp/>
+      </SafeAreaView>
   );
 }
 
@@ -18,11 +19,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
-    marginVertical: '25%'
-  }
 });
 export default App;

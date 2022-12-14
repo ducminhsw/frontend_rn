@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, Image, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import Logo from '../assets/Facebook_f_logo_(2019).svg.png'
-import { useNavigation } from "@react-navigation/native";
+import MyDatePicker from './DatePicker';
+
 
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
@@ -11,14 +12,15 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRe, setPasswordRe] = useState('');
-
-    const navi = useNavigation();
+    const [secure, setSecure] = useState(true);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [open, setOpen] = useState(true);
 
     const onRulePressed = () => {
         console.warn('Ok')
     };
     const onReturnPressed = () => {
-        navi.navigate('SignIn')
+
     };
     const onNextPressed = () => {
 
@@ -48,12 +50,21 @@ const SignUp = () => {
                     value={email}
                     setValue={setEmail}
                 />
-                <CustomInput
-                    placeholder="Mật khẩu"
-                    value={password}
-                    setValue={setPassword}
-                    secureTextEntry
-                />
+                <View style={styles.password}>
+                    <CustomInput 
+                        placeholder="Mật khẩu"
+                        value={password}
+                        setValue={setPassword}
+                        secureTextEntry={secure}
+                    />
+                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)}>
+                        {secure?
+                            <Image source={require('../assets/visible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/> 
+                            :
+                            <Image source={require('../assets/notvisible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/>
+                        }
+                    </TouchableOpacity>
+                </View>
                 <CustomInput
                     placeholder="Nhập lại mật khẩu"
                     value={passwordRe}
@@ -62,9 +73,7 @@ const SignUp = () => {
                 />
             </View>
             <Text style={styles.birthdayText}>Sinh nhật</Text>
-            <View style={styles.placeholder}>
-                <Button title="Date placeholder"/>
-            </View>
+            <MyDatePicker/>
             <View style={styles.rule}>
                 <Text style={styles.ruleText}>
                     Nhấn xác nhận đồng nghĩa với bạn đã đọc và đồng ý với{' '}
@@ -91,6 +100,11 @@ const SignUp = () => {
 }
 
 const styles = StyleSheet.create({
+    root: {
+        justifyContent: 'center',
+        padding: 20,
+        flex: 1
+    },
     header: {
         fontSize: 25,
         fontWeight: 'bold',
@@ -127,9 +141,15 @@ const styles = StyleSheet.create({
         fontSize: 15,
         alignSelf: 'center',
     },
-    placeholder: {
-        width: '90%',
-        marginHorizontal: '5%',
+    visible: {
+        height: 30,
+        width: 25,
+        position: 'absolute',
+        right: '8%',
+        alignSelf: 'center',
+    },
+    password: {
+        flexDirection: 'row'
     }
 });
 

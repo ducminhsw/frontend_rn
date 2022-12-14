@@ -1,17 +1,15 @@
 import React, {useState} from "react";
-import { Text, View, Image, StyleSheet, useWindowDimensions, SafeAreaView } from "react-native";
+import { Text, View, Image, StyleSheet, useWindowDimensions, SafeAreaView, TouchableOpacity } from "react-native";
 import Logo from "../assets/Facebook_f_logo_(2019).svg.png";
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
-import { useNavigation } from "@react-navigation/native";
 
 
-const SignIn = ({navigation}) => {
+const SignIn = () => {
     const {height} = useWindowDimensions();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const navi = useNavigation();
+    const [secure, setSecure] = useState(true);
 
     const onSignInPressed = () => {
 
@@ -20,7 +18,7 @@ const SignIn = ({navigation}) => {
 
     };
     const onSignUpPressed = () => {
-        navi.navigate('SignUp')
+
     };
 
 
@@ -37,12 +35,21 @@ const SignIn = ({navigation}) => {
                     value={username}
                     setValue={setUsername}
                 />
-                <CustomInput 
-                    placeholder="Mật khẩu"
-                    value={password}
-                    setValue={setPassword}
-                    secureTextEntry
-                />
+                <View style={styles.password}>
+                    <CustomInput 
+                        placeholder="Mật khẩu"
+                        value={password}
+                        setValue={setPassword}
+                        secureTextEntry={secure}
+                    />
+                    <TouchableOpacity style={styles.visible} onPress={() => setSecure(!secure)} activeOpacity={0.7}>
+                        {secure?
+                            <Image source={require('../assets/visible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/> 
+                            :
+                            <Image source={require('../assets/notvisible.jpg')} style={{width: '100%', height: '100%', color: '#E8E8E8'}} resizeMode='contain'/>
+                        }
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={styles.signInButtonGroup}>
                 <CustomButton
@@ -71,8 +78,9 @@ const SignIn = ({navigation}) => {
 
 const styles = StyleSheet.create({
     root: {
-        alignItems: 'center',
-        padding: 20
+        justifyContent: 'center',
+        padding: 20,
+        flex: 1
     },
     logo: {
         width: '30%',
@@ -95,6 +103,16 @@ const styles = StyleSheet.create({
     },
     registerGroup: {
         marginVertical: 10,
+    },
+    visible: {
+        height: 30,
+        width: 25,
+        position: 'absolute',
+        right: '8%',
+        alignSelf: 'center',
+    },
+    password: {
+        flexDirection: 'row'
     }
 })
 
