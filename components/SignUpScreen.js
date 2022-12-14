@@ -95,7 +95,6 @@ const SignUp = () => {
                     type="RIGHT"
                 />
             </View>
-            <View accessibilityRole='checkbox'><Text>a</Text></View>
         </SafeAreaView>
     )
 }
