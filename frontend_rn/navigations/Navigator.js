@@ -7,6 +7,7 @@ import { responsiveFontSize, responsiveHeight } from 'react-native-responsive-di
 // import HeaderButtons from "../components/HeaderButtons";
 import ChatView from "../screens/ChatView";
 import { FontAwesome, FontAwesome5, Ionicons } from "@expo/vector-icons";
+import UserInfo from "../screens/UserInfo";
 
 const Navigator = () => {
     const Stack = createStackNavigator();
@@ -46,6 +47,9 @@ const Navigator = () => {
                         ({navigation, route}) => ({
                             title: null,
                             headerRight: () => {
+                                const openUserInfo = () => {
+                                    navigation.navigate('UserInfo')
+                                }
                                 return (
                                     <View style={styles.chatViewHeaderRightContainer}>
                                         {/* <TouchableOpacity style={styles.call}>
@@ -55,7 +59,7 @@ const Navigator = () => {
                                             <FontAwesome name="video-camera" size={responsiveFontSize(3)} color="#006AFF" />
                                         </TouchableOpacity> */}
                                         <TouchableOpacity style={styles.info}>
-                                            <FontAwesome5 name="info-circle" size={responsiveFontSize(3)} color="#006AFF" />
+                                            <FontAwesome5 onPress={openUserInfo} name="info-circle" size={responsiveFontSize(3)} color="#006AFF" />
                                         </TouchableOpacity>
                                     </View>
                                 )
@@ -82,6 +86,10 @@ const Navigator = () => {
                             }
                         })
                     }
+                />
+                <Stack.Screen
+                    name="UserInfo"
+                    component={UserInfo}
                 />
             </Stack.Navigator>
         </NavigationContainer>
