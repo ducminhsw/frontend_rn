@@ -1,6 +1,6 @@
 import { AntDesign, FontAwesome, Zocial } from '@expo/vector-icons'
 import React from 'react'
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, Image, TouchableOpacity, Modal } from 'react-native'
 import { responsiveFontSize } from 'react-native-responsive-dimensions'
 
 export default function UserInfo(){
@@ -26,7 +26,7 @@ export default function UserInfo(){
                         </View> */}
                         <View style={styles.centerContainer}>
                             <View style={styles.imageContainer}>
-                                <Image style={styles.image} source={{ uri: 'https://www.foleon.com/hubfs/Images/Team%20Images/sean-filidis.png' }} />
+                                <Image style={styles.image} source={{ uri: 'https://i.imgur.com/6oU7JoG.jpg' }} />
                             </View>
                             <Text style={styles.name}>Le Minh</Text>
                             {/* <Text style={styles.facebookTitle}>Facebook</Text>
