@@ -1,24 +1,13 @@
 import { AntDesign, FontAwesome, Zocial } from '@expo/vector-icons'
-import React from 'react'
+import React, { useState } from 'react'
 import { View, StyleSheet, Text, Image, TouchableOpacity, Modal } from 'react-native'
 import { responsiveFontSize } from 'react-native-responsive-dimensions'
 
 export default function UserInfo(){
 
-    const [modelVisibility, setModelVisibility] = useState(false)
-
-    const onPressHandler = () => {
-        setModelVisibility(true)
-    }
-
     return (
-        <Modal
-                visible={modelVisibility}
-                transparent
-            >
                 <View style={styles.model}>
-                    {/* {setModelVisibility && <StatusBar backgroundColor="rgba(52, 52, 52, 0.5)"/>} */}
-                    <AntDesign onPress={() => setModelVisibility(false)} style={styles.close} name="close" size={30} color="black" />
+                    
                     <View style={styles.content}>
                         {/* <View style={styles.topContainer}>
                             <Zocial style={styles.icon} name="call" size={responsiveFontSize(3)} color="#006AFF" />
@@ -32,13 +21,16 @@ export default function UserInfo(){
                             {/* <Text style={styles.facebookTitle}>Facebook</Text>
                             <Text style={styles.caption}>You're friend on Facebok</Text> */}
                         </View>
-                        <TouchableOpacity style={styles.bottomBtn}>
+                        <TouchableOpacity style={styles.bottomBtn1}>
                             <Text style={styles.btnText}>DELETE</Text>
-                            <Text style={styles.btnText}>BLOCK</Text>
+                            
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.bottomBtn}>
+                            <Text style={styles.btnText}>BLOCk</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-            </Modal>
+            
     )
 }
 
@@ -50,7 +42,7 @@ const styles = StyleSheet.create({
     model: {
         width: '100%',
         height: '100%',
-        backgroundColor: 'rgba(52, 52, 52, 0.5)',
+        backgroundColor: '#006aff4f',
         // backgroundColor: 'transparent',
         justifyContent: 'center',
         alignItems: 'center'
@@ -63,8 +55,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     image: {
-        width: 120,
-        height: 120,
+        width: 150,
+        height: 150,
         borderRadius: 200,
         // paddingBottom : 20,
     },
@@ -88,12 +80,18 @@ const styles = StyleSheet.create({
         alignItems : 'center',
         backgroundColor : '#006AFF'
     },
+    bottomBtn1: {
+        height : 60,
+        justifyContent : 'center',
+        alignItems : 'center',
+        backgroundColor : 'red'
+    },
     btnText: {
         color : 'white',
-        fontSize : 18
+        fontSize : 18,
     },
     name: {
-        fontSize : 20
+        fontSize : 24
     },
     facebookTitle: {
         fontSize : 13
