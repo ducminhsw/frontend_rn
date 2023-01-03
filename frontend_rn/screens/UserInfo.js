@@ -17,7 +17,7 @@ export default function UserInfo(){
                             <View style={styles.imageContainer}>
                                 <Image style={styles.image} source={{ uri: 'https://i.imgur.com/6oU7JoG.jpg' }} />
                             </View>
-                            <Text style={styles.name}>Le Minh</Text>
+                            <Text style={styles.name}>Name</Text>
                             {/* <Text style={styles.facebookTitle}>Facebook</Text>
                             <Text style={styles.caption}>You're friend on Facebok</Text> */}
                         </View>

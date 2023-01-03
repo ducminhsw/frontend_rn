@@ -18,7 +18,7 @@ const Navigator = () => {
                 <Stack.Screen
                     options={
                         ({navigation}) => ({
-                            title: 'Inbox',
+                            title: 'Message',
                             // headerRight: () => {
                             //     return <HeaderButtons/>
                             // },
@@ -74,7 +74,7 @@ const Navigator = () => {
                                             <Image style={styles.profilePic} source={{ uri: 'https://i.imgur.com/6oU7JoG.jpg' }} />
                                         </View>
                                         <View>
-                                            <Text style={styles.name}>Le Minh</Text>
+                                            <Text style={styles.name}>Name</Text>
                                             {/* <Text style={styles.lastOnlineText}>Active 12 hour ago</Text> */}
                                         </View>
 
