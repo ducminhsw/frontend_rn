@@ -5,6 +5,14 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions'
 
 export default function UserInfo(){
 
+    const deleteChat = () => {
+        console.log('delete')
+    }
+
+    const blockChat = () => {
+        console.log('block')
+    }
+
     return (
                 <View style={styles.model}>
                     
@@ -18,14 +26,16 @@ export default function UserInfo(){
                                 <Image style={styles.image} source={{ uri: 'https://i.imgur.com/6oU7JoG.jpg' }} />
                             </View>
                             <Text style={styles.name}>Name</Text>
+                            <Text style={styles.name}>12.12.2001</Text>
+                            <Text style={styles.name}>Description</Text>
                             {/* <Text style={styles.facebookTitle}>Facebook</Text>
                             <Text style={styles.caption}>You're friend on Facebok</Text> */}
                         </View>
-                        <TouchableOpacity style={styles.bottomBtn1}>
+                        <TouchableOpacity onPress={ deleteChat } style={styles.bottomBtn1}>
                             <Text style={styles.btnText}>DELETE</Text>
                             
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.bottomBtn}>
+                        <TouchableOpacity onPress={ blockChat } style={styles.bottomBtn}>
                             <Text style={styles.btnText}>BLOCk</Text>
                         </TouchableOpacity>
                     </View>

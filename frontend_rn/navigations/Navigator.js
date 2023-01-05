@@ -65,6 +65,9 @@ const Navigator = () => {
                                 )
                             },
                             headerLeft: () => {
+                                const openUserInfo = () => {
+                                    navigation.navigate('UserInfo')
+                                }
                                 return (
                                     <View style={styles.chatViewHeaderLeftContainer}>
                                         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -74,7 +77,7 @@ const Navigator = () => {
                                             <Image style={styles.profilePic} source={{ uri: 'https://i.imgur.com/6oU7JoG.jpg' }} />
                                         </View>
                                         <View>
-                                            <Text style={styles.name}>Name</Text>
+                                            <Text onPress={openUserInfo} style={styles.name}>Name</Text>
                                             {/* <Text style={styles.lastOnlineText}>Active 12 hour ago</Text> */}
                                         </View>
 

@@ -1,4 +1,4 @@
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { responsiveFontSize, responsiveHeight } from "react-native-responsive-dimensions";
@@ -35,7 +35,7 @@ const ChatView = () => {
                 </View>
 
                 <TouchableOpacity style={styles.icon}>
-                    <AntDesign name="like1" size={responsiveFontSize(3.5)} color="#006AFF" />
+                    <FontAwesome5 name="paper-plane" size={responsiveFontSize(3.5)} color="#006AFF" />
                 </TouchableOpacity>
             </View>
         </View>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import ActiveUsers from "../components/ActiveUsers";
